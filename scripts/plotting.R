@@ -27,13 +27,18 @@ ggsave("results/my_plot.png", plot = my_plot,
 # day 2 plot
 # make a subset
 americas <- gapminder[gapminder$continent == "Asia",]
-panel_plot<- ggplot(americas, mapping = aes(x = year, y = lifeExp, color = continent)) + 
-    geom_line() + facet_wrap(~country) +
-    theme(axis.text.x = element_text(angle = 45, size=8)) +
-    labs(x = "Year", y = "Life Expectancy", title = "Figure 1")
+panel_plot <- ggplot(americas, mapping = aes(
+    x=year, 
+    y = lifeExp, 
+    color = continent)) +
+  geom_line() + 
+  facet_wrap( ~ country) + 
+  theme(axis.text.x = element_text(angle = 45, size=8)) +
+  labs(title = "Life Expectancy by Year", 
+       x = "Year", 
+       y = "Life Expectancy", 
+       color = "Continent")
 
-ggsave("results/panel_plot.pdf", plot = panel_plot,
-       width = 12,
-       height = 10,
-       units = "cm",
-       dpi = 300)
+ggsave("results/panelplot.pdf", plot = panel_plot) 
+
+
