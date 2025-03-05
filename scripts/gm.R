@@ -15,6 +15,9 @@ gdp_by_continent <- gapminder %>%
   summarize(mean_gdpPercap = mean(gdpPercap))
 
 
+## Code from Day 2, miscellaneous exploratory functions to learn about using
+# dplyr from Pat Bills, MSU ICER
+
 lifeExp_bycountry <- gapminder %>%
   group_by(country) %>%
   summarize(mean_lifeExp = mean(lifeExp))

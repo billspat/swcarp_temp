@@ -1,3 +1,5 @@
+### plotting.R  Code from Day one, by Craig Gross, MSU ICER
+
 library(ggplot2)
 
 # get data
