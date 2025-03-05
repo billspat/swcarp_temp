@@ -22,32 +22,27 @@ gapminder <- read.csv("../data/gapminder_data.csv")
 ```
 
 
-how can I compare life expectency by country?
+how can I compare life expectancy by country?
 
 here's function that makes a **panel plot** using `facet_wrap` on country
 
 make sure to filter on continent otherwise it's unreadable
 
+Pull in the function to make this plot in the gdp script:
+
+
 ```{r}
-# using facet_wrap on country
-gapminder_by_continent <- function(df, Continent){
-  gm_plot <-  df %>% filter(continent == Continent) %>%
-  ggplot(mapping = aes(
-  x=year, y = lifeExp, color = continent)) +
-  geom_line() + 
-  facet_wrap( ~ country) + 
-  theme(axis.text.x = element_text(angle = 45, size=8)) +
-  labs(title = "Life Expectancy by Year", 
-       x = "Year", 
-       y = "Life Expectancy", 
-       color = "Continent")
-  
-  return(gm_plot)
-}
+# Remember it's in
+# the scripts folder of the project, and this document is in the notebooks folder
+# of this project, so to get the correct path to it from here, 
+# must first go 'up' the path with `../`
+
+source('../scripts/gdp.R')
 
 ```
 
-loop through all continents: 
+loop through all continents and call the function for each one. 
+
 
 ```{r}
 for(continent in unique(gapminder$continent)) {
